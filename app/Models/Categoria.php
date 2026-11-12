@@ -19,3 +19,18 @@ class Categoria extends Model
         return $this->belongsToMany('App\Models\User');
     }
 }
+
+/*
+one to one
+(user=hasOne
+address belongsTo),
+
+one to many
+    (event=belongsTo
+    typeEvent=belongsToMny)
+
+many to many
+(user= belongsToMany
+event=belongsToMany)
+
+*/
