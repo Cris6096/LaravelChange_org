@@ -46,4 +46,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function peticiones(){
+        return $this->hasMany('App\Models\Peticione');
+    }
+
+    public function firmas(){
+        return $this->belongsToMany('App\Models\Peticione');
+    }
+
+    public function categorias(){
+        return $this->belongsToMany('App\Models\Categoria');
+    }
 }
