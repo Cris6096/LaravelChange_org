@@ -132,4 +132,13 @@ class PeticioneController extends Controller
             return response()->json(['message' => 'Peticione Not Updated'], 409);
         }
     }
+
+    public function delete($id){
+        $peticione = Peticione::findOrFail($id);
+        if ($peticione->firmantes > 0) {
+            return response()->json(['message' => 'Error peticion firmada no se puede borrar'], 409);
+        }
+        $peticione->delete();
+        return response()->json(['message' => 'Peticion eliminada', 'data' => $peticione], 200);
+    }
 }
